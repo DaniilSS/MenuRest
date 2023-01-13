@@ -58,6 +58,7 @@
     <Compile Include="Forms\CTRLMenuListForm.Designer.cs">
       <DependentUpon>CTRLMenuListForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MenuManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -82,5 +83,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ClassLibraryMenu\ClassLibraryMenu.csproj">
+      <Project>{CBCB82EA-4DEE-4217-9BA4-75CE1E939F06}</Project>
+      <Name>ClassLibraryMenu</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
