@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace ClassLibraryMenu
 {
-    public class Dish
+    public class Dish:IEquatable<Dish>
     {
-        int _id;
-        string _name;
-        int _cost;
+        int _id=0;
+        string _name="";
+        int _cost=0;
         public int ID=>_id;
         public string Name => _name;
         public int Cost => _cost;
@@ -27,10 +27,26 @@ namespace ClassLibraryMenu
             _name = name;
             _cost = cost;
         }
+        public Dish()
+        {
+        }
 
         internal string GetStr()
         {
             return $"{_id};{_name};{_cost}";
         }
+
+        public bool Equals(Dish other)
+        {
+            if(other == null)
+                return false;
+            if (this.GetType() != other.GetType())
+                return false;
+            if (string.Compare(this._name, other._name, StringComparison.CurrentCulture) == 0 && this._cost.Equals(other._cost) && this._id.Equals(other._id))
+                return true;
+            else
+                return false;
+        }
+
     }
 }
