@@ -28,9 +28,6 @@ namespace TestClassLibrary
             string act = dish.GetStr();
             Assert.AreEqual(exp, act);
         }
-
-
-
         [TestMethod]
         public void Equal_truereturn()
         {
@@ -45,6 +42,5 @@ namespace TestClassLibrary
             Dish dish2 = new Dish(2, "2", 20);
             Assert.IsFalse(dish1.Equals(dish2));
         }
-
     }
 }

@@ -6,13 +6,11 @@ namespace TestClassLibrary
     [TestClass]
     public class OrderTests
     {
-
         [TestMethod]
         public void CreateInstanceWithOutParam()
         {
             Assert.IsNotNull(new Order());
         }
-
         [TestMethod]
         public void Add_1_10_1()
         {

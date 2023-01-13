@@ -16,7 +16,6 @@ namespace TestClassLibrary
         {
             Assert.IsNotNull(new Menu());
         }
-
         [TestMethod]
         public void Add_1_10_1return()
         {
@@ -27,7 +26,6 @@ namespace TestClassLibrary
             int act = menu.Add(name,cost);
             Assert.AreEqual(exp,act);
         }
-
         [TestMethod]
         public void GetStrMenu_return()
         {
@@ -39,7 +37,6 @@ namespace TestClassLibrary
             string[] act = menu.GetStrMenu();     
             Assert.AreEqual(exp[0], act[0]);
         }
-
         [TestMethod]
         public void GetDishByID_1_110return()
         {
