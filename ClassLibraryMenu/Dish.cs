@@ -21,6 +21,13 @@ namespace ClassLibraryMenu
             _cost = Convert.ToInt32(dishParams[2]);
         }
 
+        public Dish(int count, string name, int cost)
+        {
+            _id=count;
+            _name = name;
+            _cost = cost;
+        }
+
         internal string GetStr()
         {
             return $"{_id};{_name};{_cost}";
