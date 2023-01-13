@@ -1,6 +1,6 @@
 ﻿namespace KURS
 {
-    partial class Form1
+    partial class MenuEditForm
     {
         /// <summary>
         /// Обязательная переменная конструктора.

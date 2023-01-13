@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace KURS
+namespace KURS.Forms
 {
-    public partial class Form1 : Form
+    public partial class CTRLMenuListForm : DataGrid
     {
-        public Form1()
+        public CTRLMenuListForm()
         {
             InitializeComponent();
         }
