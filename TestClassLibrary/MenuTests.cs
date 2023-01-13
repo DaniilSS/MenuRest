@@ -6,9 +6,10 @@ namespace TestClassLibrary
     [TestClass]
     public class MenuTests
     {
+        [TestMethod]
         public void CreateInstanceWithStringArray()
         {
-            Assert.IsNotNull(new Menu(new string[] {""}));
+            Assert.IsNotNull(new Menu(new string[] {"1;1;10"}));
         }
         [TestMethod]
         public void CreateInstanceWithOutParam()

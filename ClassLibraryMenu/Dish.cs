@@ -8,6 +8,7 @@ namespace ClassLibraryMenu
 {
     public class Dish:IEquatable<Dish>
     {
+        
         int _id=0;
         string _name="";
         int _cost=0;
@@ -36,6 +37,23 @@ namespace ClassLibraryMenu
             return $"{_id};{_name};{_cost}";
         }
 
+        public static bool operator ==(Dish left, Dish right) => left.Equals(right);
+        public static bool operator !=(Dish left, Dish right) => !left.Equals(right);
+
+
+        private static bool IsNull(Dish left)
+        {
+            try
+            {
+                int i = left._id;
+            }
+            catch
+            {
+                return true;
+            }
+            return false;
+        }
+
 
         public override bool Equals(object other)
         {
@@ -43,15 +61,12 @@ namespace ClassLibraryMenu
                 return false;
             if (this.GetType() != other.GetType())
                 return false;
-            if (string.Compare(this._name, ((Dish)other)._name, StringComparison.CurrentCulture) == 0 && this._cost.Equals(((Dish)other)._cost) && this._id.Equals(((Dish)other)._id))
-                return true;
-            else
-                return false;
+            return this.Equals(other as Dish);
         }
 
         public bool Equals(Dish other)
         {
-            if(other == null)
+            if(Dish.IsNull(other))
                 return false;
             if (this.GetType() != other.GetType())
                 return false;
@@ -61,5 +76,20 @@ namespace ClassLibraryMenu
                 return false;
         }
 
+
+
     }
+    public class DishComparer : IEqualityComparer<Dish>
+    {
+        public bool Equals(Dish x, Dish y)
+        {
+            return x == y;
+        }
+
+        public int GetHashCode(Dish obj)
+        {
+            return obj.GetHashCode();
+        }
+    }
+
 }

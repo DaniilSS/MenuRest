@@ -8,6 +8,7 @@ namespace ClassLibraryMenu
 {
     public class Order
     {
+        DishComparer comparer = new DishComparer();
         int _id;
         public int Cost => Dishes.Select(x => x.Key.Cost * x.Value).Sum();
         public int ID { get => _id; set => _id = value; }
@@ -20,9 +21,10 @@ namespace ClassLibraryMenu
 
         public void Add(Dish dish)
         {
-            if(Dishes.Keys.Contains(dish))
+            Dish tdish = Dishes.Keys.Where(x => x == dish).FirstOrDefault();
+            if (Dishes.Keys.Contains(dish,comparer))
             {
-                Dishes[dish]++;                
+                Dishes[tdish]++;
             }
             else
             {
@@ -32,21 +34,25 @@ namespace ClassLibraryMenu
 
         public void RemoveOne(Dish dish)
         {
-            if (Dishes.Keys.Contains(dish))
-            {
-                Dishes[dish]--;
-                if(Dishes[dish]<=0)
-                    Remove(dish);
-            }
+            Dish tdish = Dishes.Keys.Where(x => x == dish).FirstOrDefault();
+            if (!(tdish is null))
+                if (Dishes.Keys.Contains(tdish))
+                {
+                    Dishes[tdish]--;
+                    if (Dishes[tdish] <= 0)
+                        Remove(tdish);
+                }
 
         }
 
         public void Remove(Dish dish)
         {
-            if (Dishes.Keys.Contains(dish))
-            {
-                Dishes.Remove(dish);
-            }
+            Dish tdish = Dishes.Keys.Where(x => x == dish).FirstOrDefault();
+            if (!(tdish is null))
+                if (Dishes.Keys.Contains(tdish))
+                {
+                    Dishes.Remove(tdish);
+                }
         }
     }
 }
