@@ -25,8 +25,14 @@ namespace ClassLibraryMenu
         }
         public int Add(string name,int cost)
         {
-            _dishes.Add(new Dish(_dishes.Count+1, name, cost));
+            _dishes.Add(new Dish(_dishes.Select(x=>x.ID).Max()+1, name, cost));
             return _dishes.Last().ID;
+        }
+        public Dish GetDishByID(int id)
+        {
+            if (id < 0)
+                return null;
+            return _dishes.Where(x=>x.ID==id).First();
         }
     }
 }

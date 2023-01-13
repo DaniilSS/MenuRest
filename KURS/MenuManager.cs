@@ -12,6 +12,15 @@ namespace KURS
     public class MenuManager
     {
         Menu _menu;
+        Order _order;
+
+        public MenuManager(string path)
+        {
+            ReadFromFile(path);
+            _order = new Order();
+        }
+
+
         internal void WriteToGrid(CTRLMenuListForm data)
         {
             data.Rows.Clear();
@@ -48,5 +57,22 @@ namespace KURS
         {
             return _menu.Add(name, cost);
         }
+
+        public void AddDishInOrder(int id)
+        {
+            _order.Add(_menu.GetDishByID(id));
+        }
+        public void RemoveOneDishInOrder(int id)
+        {
+            _order.RemoveOne(_menu.GetDishByID(id));
+        }
+        public void RemoveDishInOrder(int id)
+        {
+            _order.Remove(_menu.GetDishByID(id));
+        }
+
+        public int GetCostOrder() => _order.Cost;
+
+
     }
 }
